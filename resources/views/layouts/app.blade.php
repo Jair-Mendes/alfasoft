@@ -27,7 +27,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{ route('home') }}">
+                <a class="navbar-brand" href="{{ route('contact.index') }}">
                     {{ config('app.name') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -39,6 +39,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::is('contact*') ? 'active' : '' }}" href="{{ route('contact.index') }}">Contact</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -86,6 +89,7 @@
         <main class="py-4">
             <div class="container">
                 <div class="row justify-content-center">
+                    @include('widgets.messages')
                     @yield('content')
                 </div>
             </div>
